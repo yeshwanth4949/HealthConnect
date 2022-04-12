@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% block block1 %}
+	<title>Base Page</title>
+{% endblock %}
+
+</head>
+<body>
+
+{% block block3 %}
+I am in base.html<br>
+{% endblock %}
+
+
+{% block block2 %}
+<a href="{% url 'user' %}">User</a>&nbsp;&nbsp;&nbsp;
+<a href="{% url 'guest' %}">Guest</a>&nbsp;&nbsp;&nbsp;
+{% endblock %}
+</body>
+</html>

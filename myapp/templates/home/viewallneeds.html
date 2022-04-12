@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>view appointments</title>
+  <style type="text/css">
+        /*nav a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    nav a:hover{
+      background-color: black;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    a:hover{
+      font-size: 1.2em;
+    }*/
+    .styled-table {
+    border-collapse: collapse;
+    margin: 40px 0;
+    margin-left: -40px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+  </style>
+  <link rel="shortcut icon" href="{% static 'Adminhome/favicon.ico' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/animate.css' %}">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/icomoon.css' %}">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/bootstrap.css' %}">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/flexslider.css' %}">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/style.css' %}">
+
+  <!-- Modernizr JS -->
+  <script src="{% static 'js/Adminhome/modernizr-2.6.2.min.js' %}"></script>
+</head>
+<body bgcolor="lightblue">
+  <div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+      <h1 id="fh5co-logo"><a href="#">Health Connect</a></h1>
+      <nav id="fh5co-main-menu" role="navigation">
+        <ul>
+          <li ><a href="/requestneed">Request Need</a></li>
+          <li class="fh5co-active"><a href="/allneeds">View Requests</a></li>
+          <li ><a href="/myneeds">My Addons</a></li>
+          <li ><a href="/viewuserappoit">My Appointments</a></li>
+          <li ><a href="/addmedication">Add Medication</a></li>
+          <li ><a href="/viewmedication">My Medication</a></li>
+          <li ><a href="/homeuser">Back</a></li>
+        </ul>
+      </nav>
+
+
+      
+
+    </aside>
+  <center>
+<marquee><h1 align="center" style="color: Grey; background-color: white" ><u>Doctors</u></h1></marquee>
+ <h1 style="text-align: center;color: brown"><u>My Addons</u></h1>
+</center>
+<div style="margin-left: 350px;">
+ <table align="center" border="2" class="styled-table">
+   <thead>
+   <tr>
+     <th>Hospital name</th>
+     <th>Patient name</th>
+     <th>Assist Name</th>
+     <th>Requirements</th>
+     <th>Username</th>
+     <th>Phone Number</th>
+     <th>Address</th>
+     <th>Requested Time</th>
+   </tr>
+ </thead>
+{% for lifebank in LifeBanks %}
+<tbody>
+<tr>
+  <td>{{lifebank.hospitalname}}</td>
+  <td>{{lifebank.patientnname}}</td>
+  <td>{{lifebank.assistname}}</td>
+  <td>{{lifebank.requiremets}}</td>
+  <td>{{lifebank.username}}</td>
+  <td>{{lifebank.mobileno}}</td>
+  <td>{{lifebank.address}}</td>
+  <td>{{lifebank.fileuploadtime}}</td>
+</tr>
+</tbody>
+{% empty %}
+<h1 color="red"><u>No Appiontments Found</u></h1>
+
+{% endfor %}
+
+</table>
+
+
+</div>
+</body>
+</html>
+
+

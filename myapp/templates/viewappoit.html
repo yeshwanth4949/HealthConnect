@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Requests</title>
+  <style type="text/css">
+        /*nav a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    nav a:hover{
+      background-color: black;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    a:hover{
+      font-size: 1.2em;
+    }*/
+    .styled-table {
+    border-collapse: collapse;
+    margin: 40px 0;
+    margin-left: 100px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+form.example input[type=text] {
+  padding: 8px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 8px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+form{
+  margin-left: 500px;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="{% static 'Adminhome/favicon.ico' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/animate.css' %}">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/icomoon.css' %}">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/bootstrap.css' %}">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/flexslider.css' %}">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/style.css' %}">
+
+  <!-- Modernizr JS -->
+  <script src="{% static 'js/Adminhome/modernizr-2.6.2.min.js' %}"></script>
+</head>
+<body bgcolor="lightblue">
+  <div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+      <h1 id="fh5co-logo"><a href="#">Health Connect</a></h1>
+      <nav id="fh5co-main-menu" role="navigation">
+        <ul>
+          <li ><a href="doctorhome">Home</a></li>
+          <li><a href="viewrequests">Requests</a></li>
+          <li class="fh5co-active"><a href='viewappoit'>My Appointments</a></li>
+          <li><a href='logindoc'>Log Out</a></li>
+<!--          <li><a href="contact.html">Contact</a></li>
+ -->        </ul>
+      </nav>
+
+
+      
+
+    </aside>
+  <center>
+<marquee><h1 align="center" style="color: Grey; background-color: white" ><u>Doctors</u></h1></marquee>
+ <h1 style="margin-left: 250px;color: brown"><u>Application from Patients</u></h1>
+</center>
+ <form method="post" class="example" action="/viewsearchappoit" style="margin:auto;max-width:300px">
+  {% csrf_token %}
+  <input type="text" placeholder="Search.." name="search" value="{{search}}">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<div style="margin-left: 350px;">
+ <table align="center" border="2" class="styled-table">
+   <thead>
+   <tr>
+     <th>Name</th>
+     <th>email</th>
+     <th>Preferred Date</th>
+     <th>Preferred Time</th>
+     <th>Specialization</th>
+     <th>Action</th>
+   </tr>
+ </thead>
+{% for appointment in Appointments %}
+<tbody>
+<tr>
+  <td>{{appointment.name}}</td>
+  <td>{{appointment.email}}</td>
+  <td>{{appointment.pdate}}</td>
+  <td>{{appointment.ptime}}</td>
+  <td>{{appointment.specialization}}</td>
+  <td><a href="/patientrecords/{{appointment.username}},{{appointment.name}},{{appointment.email}}">View Patient History</a><br></td>
+  
+</tr>
+</tbody>
+{% empty %}
+<h1 color="red"><u>No Records Found</u></h1>
+
+{% endfor %}
+
+</table>
+
+
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+  <title>request need</title>
+  <style type="text/css">
+        /*nav a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    nav a:hover{
+      background-color: black;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    a:hover{
+      font-size: 1.2em;
+    }*/
+    .styled-table {
+    border-collapse: collapse;
+    margin: 40px 0;
+    margin-left: -40px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+  </style>
+  <link rel="shortcut icon" href="{% static 'Adminhome/favicon.ico' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/animate.css' %}">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/icomoon.css' %}">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/bootstrap.css' %}">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/flexslider.css' %}">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/style.css' %}">
+  
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'register_vendor/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all' %}">
+    <link href="{% static 'register_vendor/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'register_vendor/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register_vendor/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/register/main.css' %}" rel="stylesheet" media="all">
+  <!-- Modernizr JS -->
+  <script src="{% static 'js/Adminhome/modernizr-2.6.2.min.js' %}"></script>
+</head>
+<body bgcolor="lightblue">
+  <div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight" style="background-color: white;">
+
+      <h1 id="fh5co-logo"><a href="#">Health Connect</a></h1>
+      <nav id="fh5co-main-menu" role="navigation">
+        <ul>
+          <li ><a href="/requestneed">Request Need</a></li>
+          <li ><a href="/allneeds">View Requests</a></li>
+          <li ><a href="/myneeds">My Addons</a></li>
+          <li ><a href="/viewuserappoit">My Appointments</a></li>
+          <li class="fh5co-active"><a href="/addmedication">Add Medication</a></li>
+          <li ><a href="/viewmedication">My Medication</a></li>
+          <li ><a href="/homeuser">Back</a></li>
+        </ul>
+      </nav>
+
+
+      
+
+    </aside>
+  <center>
+ <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title"><u style="color: red;">Add Medication</u> </h2>
+                   
+                    
+                    <form method="POST" action='/uploadfile' enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Hospital name</label>
+                                    <input class="input--style-4" type="text" name="hname">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Patient name</label>
+                                    <input class="input--style-4" type="text" name="pname">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Medication name</label>
+                                    <input class="input--style-4" type="text" name="mname">
+                                </div>
+                            </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Start Date</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="startdate">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">End Date</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="enddate">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio"  name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="row row-space">
+                            
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="uname" name="username">
+                                </div>
+                            </div>
+                            
+                            <div class="col-2">
+                                <div>
+                                    <label class="label">Upload File</label>
+                                    &nbsp;<input type="file" name="attachment"><br>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Description</label>
+                                   <textarea name="desc" rows="4" cols="30">  </textarea>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Disease</label>
+                                    <input class="input--style-4" type="text" name="disease">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row row-space">
+                        <div class="input-group">
+                            <label class="label">File Category</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="filecat">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Prescription">Prescription</option>
+                                    <option value="Diagonisis Reports">Diagonisis Reports</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Type of Disease</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="type_category">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value="Minor">Minor</option>
+                                    <option value="Major">Major</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                      </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'register_vendor/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'register_vendor/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'register_vendor/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'register_vendor/vendor/datepicker/daterangepicker.js'%}"></script>
+
+    <!-- Main JS-->
+    <script src="{%static 'js/register/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+
+
+</div>
+</body>
+</html>
+
+

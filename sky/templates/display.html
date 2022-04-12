@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block block1 %}
+<title>Display Page</title>
+{% endblock %}
+
+
+
+{% block block2 %}
+<a href="{% url 'user' %}">Home</a>&nbsp;&nbsp;&nbsp;
+<a href="{% url 'guest' %}">Login</a>&nbsp;&nbsp;&nbsp;
+{% endblock %}
+
+{% block block3 %}
+I am in display.html<br>
+{% endblock %}
+

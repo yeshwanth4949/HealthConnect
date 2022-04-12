@@ -1,0 +1,1 @@
+select * from doctor_table into outfile "E:\\2-2\\sky\\doctor.csv" fields terminated by ',' lines terminated by '\n';

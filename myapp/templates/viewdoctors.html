@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor list</title>
+  <style type="text/css">
+        /*nav a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    nav a:hover{
+      background-color: black;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      padding: 15px;
+
+      display: inline-block;
+    }
+    a:hover{
+      font-size: 1.2em;
+    }*/
+    .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+  </style>
+</head>
+<body bgcolor="lightblue">
+
+    <link rel="shortcut icon" href="{% static 'Adminhome/favicon.ico' %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/animate.css' %}">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/icomoon.css' %}">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/bootstrap.css' %}">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/flexslider.css' %}">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="{% static 'css/Adminhome/style.css' %}">
+
+  <!-- Modernizr JS -->
+  <script src="{% static 'js/Adminhome/modernizr-2.6.2.min.js' %}"></script>
+</head>
+<body bgcolor="lightblue">
+  <div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+      <h1 id="fh5co-logo"><a href="#">Health Connect</a></h1>
+      <nav id="fh5co-main-menu" role="navigation">
+        <ul>
+          <li ><a href="adminh">Home</a></li>
+          <li><a href="requestsdoc">View Requests</a></li>
+          <li class="fh5co-active"><a href='viewdoctors'>View Doctors</a></li>
+          <li><a href='coverpage'>Log Out</a></li>
+<!--          <li><a href="contact.html">Contact</a></li>
+ -->        </ul>
+      </nav>
+      </aside>
+    </div>
+
+
+
+<marquee><h1 align="center" style="color: Grey; background-color: white" ><u>Doctors</u></h1></marquee>
+
+ <h1 style="text-align: center;color: brown"><u>Doctors List</u></h1>
+
+
+
+<div style="margin-left: 400px;">
+
+ <table  border="2" class="styled-table">
+   <thead>
+   <tr>
+     <th>First Name</th>
+     <th>Last Name</th>
+     <th>Password</th>
+     <th>gender</th>
+     <th>email</th>
+     <th>Mobile Number</th>
+     <th>Specailization</th>
+     <th>username</th>
+
+   </tr>
+   </thead>
+{% for Doctor in Doctors %}
+<tbody>
+<tr>
+  <td>{{Doctor.firstname}}</td>
+  <td>{{Doctor.lastname}}</td>
+  <td>{{Doctor.password}}</td>
+  <td>{{Doctor.gender}}</td>
+  <td>{{Doctor.email}}</td>
+  <td>{{Doctor.mobileno}}</td>
+  <td>{{Doctor.specialization}}</td>
+  <td>{{Doctor.username}}</td>
+  </tr>
+</tbody>
+{% empty %}
+<h1 color="red"><u>No Records Found</u></h1>
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+</div>
+</body>
+</html>

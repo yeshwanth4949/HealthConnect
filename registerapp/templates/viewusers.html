@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Detials</title>
+  <style type="text/css">
+        /*nav a{
+      text-decoration: none;
+      padding: 15px;
+      color: black;
+      display: inline-block;
+    }
+    nav a:hover{
+      background-color: black;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      padding: 15px;
+      color: black;
+      display: inline-block;
+    }
+    a:hover{
+      font-size: 1.2em;
+    }*/
+    .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+  </style>
+</head>
+<body bgcolor="lightblue">
+  <center>
+<marquee><h1 align="center" style="color: Grey; background-color: white" ><u>Users</u></h1></marquee>
+ <h1 style="text-align: center;color: brown"><u>View Users</u></h1>
+<mark>Total Number of Users = {{count}}</mark><br><br>
+
+ <table align="center" border="2" class="styled-table">
+   <thead>
+   <tr>
+     <th>First Name</th>
+     <th>Last Name</th>
+     <th>Birthday</th>
+     <!-- <th>gender</th> -->
+     <!-- <th>personal_mail</th> -->
+     <th>password</th>
+     <th>Mobile Number</th>
+     <th>username</th>
+     <th>state</th>
+   </tr>
+   </thead>
+{% for UserRegistration in UsersRegistrations %}
+<tbody>
+<tr>
+  <td>{{UserRegistration.FirstName}}</td>
+  <td>{{UserRegistration.LastName}}</td>
+  <td>{{UserRegistration.Birthday}}</td>
+  <!-- <td>{{UserRegistration.gender}}</td> -->
+  <!-- <td>{{UserRegistration.personal_mail}}</td> -->
+  <td>{{UserRegistration.password}}</td>
+  <td>{{UserRegistration.mobileno}}</td>
+  <td>{{UserRegistration.username}}</td>
+  <td>{{UserRegistration.state}}</td>
+</tr>
+</tbody>
+{% empty %}
+<h1 color="red"><u>No Records Found</u></h1>
+
+{% endfor %}
+</center>
+
+</table>
+
+
+
+</body>
+</html>
